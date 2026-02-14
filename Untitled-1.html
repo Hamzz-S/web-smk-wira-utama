@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMK Wira Utama - Sekolah Unggul</title>
+  <style>
+    :root {
+      --bg: #f6f4ee;
+      --paper: #fffdf7;
+      --ink: #1f2a1f;
+      --brand: #146356;
+      --accent: #f4a300;
+      --muted: #5f6f64;
+      --line: #d8d2c3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, #ffeec3 0%, transparent 38%),
+        radial-gradient(circle at 100% 100%, #d9efe8 0%, transparent 36%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 253, 247, 0.88);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      font-size: 1.05rem;
+    }
+
+    .logo span {
+      color: var(--brand);
+      font-weight: 900;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--ink);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 180ms ease;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .links a:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.4rem;
+      padding: 2.3rem 0 1.4rem;
+      align-items: stretch;
+    }
+
+    .hero-main, .hero-side {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0 10px 28px rgba(40, 34, 18, 0.08);
+      animation: rise 420ms ease both;
+    }
+
+    .hero-main h1 {
+      margin: 0;
+      line-height: 1.2;
+      font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+    }
+
+    .hero-main p {
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .btns {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 0.9rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 180ms ease;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-ghost {
+      border-color: var(--brand);
+      color: var(--brand);
+      background: #fff;
+    }
+
+    .hero-side ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    .hero-side li { margin: 0.4rem 0; }
+
+    .section {
+      margin: 1.1rem 0;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: 0 8px 24px rgba(40, 34, 18, 0.06);
+      animation: rise 520ms ease both;
+    }
+
+    .section h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.3rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 0.4rem;
+      color: var(--brand);
+      font-size: 1.02rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .stat {
+      background: linear-gradient(160deg, #ffffff, #fff5da);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--brand);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 1.1rem 0 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .contact,
+      .stats { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero-main,
+      .hero-side,
+      .section { border-radius: 14px; }
+      .links a { padding: 0.35rem 0.62rem; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="logo">SMK <span>Wira Utama</span></div>
+      <nav class="links">
+        <a href="#profil">Profil</a>
+        <a href="#program">Program</a>
+        <a href="#fasilitas">Fasilitas</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <article class="hero-main">
+        <h1>Membentuk Generasi Berkarakter, Cerdas, dan Siap Masa Depan</h1>
+        <p>
+          SMA Nusantara menghadirkan pembelajaran akademik yang kuat, pengembangan karakter,
+          dan dukungan teknologi agar setiap siswa siap bersaing di dunia kampus maupun kerja.
+        </p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#kontak">Daftar Sekarang</a>
+          <a class="btn btn-ghost" href="#profil">Lihat Profil Sekolah</a>
+        </div>
+      </article>
+      <aside class="hero-side">
+        <h2>Info Cepat</h2>
+        <ul>
+          <li>Akreditasi: B</li>
+          <li>Kurikulum: Merdeka + Program Olimpiade</li>
+          <li>Ekstrakurikuler: 20+ pilihan</li>
+          <li>Pendaftaran Tahun Ajaran 2026/2027 dibuka</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section" id="profil">
+      <h2>Profil Sekolah</h2>
+      <p>
+        Berdiri sejak 1998, SMA Nusantara berkomitmen menciptakan lingkungan belajar yang aman,
+        disiplin, dan inspiratif. Kami memadukan prestasi akademik, kreativitas, serta kepedulian sosial.
+      </p>
+      <div class="stats">
+        <div class="stat"><strong>1.200+</strong>Siswa Aktif</div>
+        <div class="stat"><strong>85</strong>Guru & Staf</div>
+        <div class="stat"><strong>42</strong>Penghargaan 3 Tahun</div>
+        <div class="stat"><strong>97%</strong>Lulus PTN/PTS</div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <h2>Program Unggulan</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Kelas Riset</h3>
+          <p>Proyek penelitian sains dan sosial untuk kompetisi tingkat kota sampai nasional.</p>
+        </article>
+        <article class="card">
+          <h3>English Plus</h3>
+          <p>Program komunikasi aktif, presentasi, dan persiapan sertifikasi bahasa Inggris.</p>
+        </article>
+        <article class="card">
+          <h3>Digital Class</h3>
+          <p>Pembelajaran berbasis teknologi, coding dasar, serta literasi digital yang aman.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="fasilitas">
+      <h2>Fasilitas</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Laboratorium Modern</h3>
+          <p>Lab Fisika, Kimia, Biologi, dan Komputer dengan perangkat pembelajaran terkini.</p>
+        </article>
+        <article class="card">
+          <h3>Perpustakaan Digital</h3>
+          <p>Akses ribuan buku dan jurnal untuk mendukung kebiasaan belajar mandiri siswa.</p>
+        </article>
+        <article class="card">
+          <h3>Sport Center</h3>
+          <p>Lapangan multifungsi dan pembinaan olahraga untuk siswa berprestasi.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="kontak">
+      <h2>Kontak & Pendaftaran</h2>
+      <div class="contact">
+        <div class="card">
+          <h3>Alamat</h3>
+          <p>Jl. Kebon Kai No.3, Kertaangsana, Kec. Nyalindung, Kabupaten Sukabumi, Jawa Barat 43196</p>
+          <p>Telp: (0266) 480033</p>
+          <p>Email: smkwirautama@yahoo.co.id</p>
+        </div>
+        <div class="card">
+          <h3>Jam Layanan</h3>
+          <p>Senin - Jumat: 07.00 - 16.00 WIB</p>
+          <p>Sabtu: 08.00 - 12.00 WIB</p>
+          <p>Pendaftaran online tersedia 24 jam.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 SMK WiraUtama. Semua hak dilindungi.
+  </footer>
+</body>
+</html>
